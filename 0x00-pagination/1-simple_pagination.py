@@ -12,7 +12,7 @@ def index_range(page, page_size):
     b = a - page_size
     return (b, a)
 
-  
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -43,6 +43,5 @@ class Server:
         file.close()
         r = index_range(page, page_size)
         a = r[0] + 1
-        b= r[1] + 1
-        return data[a:b]
-            
+        b = r[1] + 1
+        return data[a:b]     
