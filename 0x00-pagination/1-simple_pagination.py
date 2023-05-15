@@ -38,11 +38,11 @@ class Server:
         assert type(page_size) == int
         assert page > 0
         assert page_size > 0
-        file = open("self.DATA_FILE", "r")
+        file = open(self.DATA_FILE, "r")
         data = list(csv.reader(file, delimiter=","))
         file.close()
-        r = index_range(age, page_size)
-        a = r[0]
-        b= r[1]
+        r = index_range(page, page_size)
+        a = r[0] + 1
+        b= r[1] + 1
         return data[a:b]
             
