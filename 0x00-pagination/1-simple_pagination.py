@@ -44,4 +44,4 @@ class Server:
         r = index_range(page, page_size)
         a = r[0] + 1
         b = r[1] + 1
-        return data[a:b]     
+        return data[a:b]
