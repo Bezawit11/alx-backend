@@ -33,7 +33,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """        """
+        """return the appropriate page of the dataset"""
+        assert type(page) == int
+        assert type(page_size) == int
+        assert page > 0
+        assert page_size > 0
         file = open("self.DATA_FILE", "r")
         data = list(csv.reader(file, delimiter=","))
         file.close()
