@@ -20,7 +20,6 @@ class Server:
 
     def __init__(self):
         self.__dataset = None
-        self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
         """Cached dataset
@@ -33,16 +32,13 @@ class Server:
 
         return self.__dataset
 
-    def indexed_dataset(self) -> Dict[int, List]:
-        """Dataset indexed by sorting position, starting at 0
-        """
-        if self.__indexed_dataset is None:
-            dataset = self.dataset()
-            truncated_dataset = dataset[:1000]
-            self.__indexed_dataset = {
-                i: dataset[i] for i in range(len(dataset))
-            }
-        return self.__indexed_dataset
-
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            pass
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """        """
+        file = open("self.DATA_FILE", "r")
+        data = list(csv.reader(file, delimiter=","))
+        file.close()
+        r = index_range(age, page_size)
+        a = r[0]
+        b= r[1]
+        return data[a:b]
+            
