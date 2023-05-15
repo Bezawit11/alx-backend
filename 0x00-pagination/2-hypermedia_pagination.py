@@ -55,7 +55,7 @@ class Server:
         file = open(self.DATA_FILE, "r")
         data = list(csv.reader(file, delimiter=","))
         file.close()
-        s = len(d) - 1
+        s = len(data) - 1
         d = {"page_size": page_size, "page": page, "data": get_page(page, page_size), 
             "next_page": page + 1, "prev_page": page - 1, "total_pages": s / page_size}
         return d
