@@ -39,7 +39,11 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """return a dictionar"""
-        assert index < len(self.indexed_dataset)
+        file = open(self.DATA_FILE, "r")
+        data = list(csv.reader(file, delimiter=","))
+        file.close()
+        s = len(data) - 1
+        assert index < s
         return {"index": index,
                 "next_index": page_size * index,
                 "page_size": page_size,
