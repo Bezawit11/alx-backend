@@ -45,7 +45,7 @@ class Server:
         s = len(data) - 1
         assert index < s
         return {"index": index,
-                "data": [data[3:page_size]],
+                "data": data[index:page_size + index],
                 "page_size": page_size,
                 "next_index": page_size + index
                 }
