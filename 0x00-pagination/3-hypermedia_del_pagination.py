@@ -39,7 +39,7 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """return a dictionar"""
-        assert index in self.dataset
+        assert index < len(self.indexed_dataset)
         return {"index": index,
                 "next_index": page_size * index,
                 "page_size": page_size,
