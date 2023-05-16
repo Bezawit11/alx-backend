@@ -45,7 +45,7 @@ class Server:
         s = len(data) - 1
         assert index < s
         return {"index": index,
-                "next_index": page_size * index,
+                "data": [data[3:page_size]],
                 "page_size": page_size,
-                "data": self.indexed_dataset
+                "next_index": page_size + index
                 }
