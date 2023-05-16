@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Deletion-resilient hypermedia pagination
-"""
+"""Deletion-resilient pagination"""
 
 import csv
 import math
@@ -43,10 +41,7 @@ class Server:
         """return a dictionar"""
         assert index in self.dataset
         return {"index": index,
-                 "next_index": page_size * index,
-                 "page_size": page_size,
-                 "data": self.indexed_dataset
-               }
-        
-        
-      
+                "next_index": page_size * index,
+                "page_size": page_size,
+                "data": self.indexed_dataset
+                }
