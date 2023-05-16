@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""""
+"""pagination"""
 
 import csv
 import math
@@ -18,11 +18,9 @@ class Server:
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
-
     def __init__(self):
         """initialization"""
         self.__dataset = None
-
 
     def dataset(self) -> List[List]:
         """Cached dataset
@@ -32,9 +30,7 @@ class Server:
                 reader = csv.reader(f)
                 dataset = [row for row in reader]
             self.__dataset = dataset[1:]
-
         return self.__dataset
-
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """return the appropriate page of the dataset"""
@@ -49,7 +45,7 @@ class Server:
         a = r[0] + 1
         b = r[1] + 1
         return data[a:b]
-      
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """returns a dictionary"""
         file = open(self.DATA_FILE, "r")
@@ -65,7 +61,7 @@ class Server:
             p = None
         else:
             p = page - 1
-        d = {"page_size": page_size, "page": page, "data": self.get_page(page, page_size), 
-            "next_page": n, "prev_page": p, "total_pages": total_pages}
+        d = {"page_size": page_size, "page": page, "data": 
+                 self.get_page(page, page_size), 
+                     "next_page": n, "prev_page": p, "total_pages": total_pages}
         return d
-
