@@ -61,7 +61,11 @@ class Server:
             n = None
         else:
             n = page + 1
+        if page - 1 == 0:
+            p = None
+        else:
+            p = page - 1
         d = {"page_size": page_size, "page": page, "data": self.get_page(page, page_size), 
-            "next_page": n, "prev_page": page - 1, "total_pages": total_pages}
+            "next_page": n, "prev_page": p, "total_pages": total_pages}
         return d
 
