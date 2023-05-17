@@ -10,7 +10,7 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """Initializes"""
         super().__init__()
-    
+
     def put(self, key, item):
         """ assign to the dict cache_data the item value for the key"""
         if key is None or item is None:
