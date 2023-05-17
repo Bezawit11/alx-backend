@@ -2,7 +2,6 @@
 """0-basic_cache.py"""
 
 
-
 class BaseCaching():
     """ BaseCaching defines:
       - constants of your caching system
@@ -33,15 +32,19 @@ class BaseCaching():
         raise NotImplementedError("get must be implemented in your cache class")
 
 class BasicCache(BaseCaching):
-    """inherits from BaseCaching and is a caching system"""
+    """inherits from BaseCaching and is a caching system
+    """
+
     def put(self, key, item):
-        """appends dictionary"""
+        """appends a key and value pair to dictionary
+        """
         if key is None or item is None:
             return
         self.cache_data[key] = item
         
     def get(self, key):
-        """gets values from dictionary"""
+        """gets values from dictionary by referencing a key
+        """
         if key is None:
             return None
         if key in self.cache_data.keys():
