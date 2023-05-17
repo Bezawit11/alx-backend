@@ -44,6 +44,7 @@ class BasicCache(BaseCaching):
         """gets values from dictionary"""
         if key is None:
             return None
-        v = self.cache_data[key]
-        return v
+        if key in self.cache_data.keys():
+            v = self.cache_data[key]
+            return v
 
