@@ -26,7 +26,6 @@ class LFUCache(BaseCaching):
             self.cache[key] = item
         if key in self.m.keys():
             self.m[key] += 1
-        print(self.m)
         a = 0
         h = []
         s_ = sorted(self.m.items(), key=lambda x:x[1])
