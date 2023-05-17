@@ -15,6 +15,7 @@ class FIFOCache(BaseCaching):
         """ assign to the dict cache_data the item value for the key"""
         if key is None or item is None:
             return
+        self.cache_data[key] = item
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             a = list(self.cache_data.keys())[0]
             self.cache_data.pop(a)
