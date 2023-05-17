@@ -26,7 +26,7 @@ class LFUCache(BaseCaching):
             self.cache[key] = item
         if key in self.m.keys():
             self.m[key] += 1
-        s_ = sorted(self.m.items(), key=lambda x:x[1])
+        s_ = sorted(self.m.items(), key=lambda x: x[1])
         if len(self.cache) == BaseCaching.MAX_ITEMS:
             a = s_[0][0]
             print(f"DISCARD: {a}")
