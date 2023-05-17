@@ -34,10 +34,6 @@ class BaseCaching():
 
 class BasicCache(BaseCaching):
     """inherits from BaseCaching and is a caching system"""
-    def __init__(self, cache_data):
-        """Ïnitialization"""
-        BaseCaching.__init__(self, cache_data)
-       
     def put(self, key, item):
         """appends dictionary"""
         if key is None or item is None:
