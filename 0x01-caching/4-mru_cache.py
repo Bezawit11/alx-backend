@@ -39,4 +39,3 @@ class MRUCache(BaseCaching):
         self.cache.pop(key)
         self.cache[key] = v
         return self.cache[key]
-  
