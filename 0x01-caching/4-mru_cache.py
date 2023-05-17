@@ -28,6 +28,7 @@ class MRUCache(BaseCaching):
             self.cache.pop(a)
             self.cache_data = self.cache
         self.cache[key] = item
+        self.cache_data = self.cache
 
     def get(self, key):
         """gets values from dictionary by referencing a key
