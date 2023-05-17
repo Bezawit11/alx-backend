@@ -9,8 +9,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 class LRUCache(BaseCaching):
     """inherits from BaseCaching and is a caching system
     """
-    cache = {}
-    m = {}
+    cache = OrderedDict()
 
     def __init__(self):
         """Initializes"""
