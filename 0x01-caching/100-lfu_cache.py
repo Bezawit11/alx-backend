@@ -23,6 +23,7 @@ class LFUCache(BaseCaching):
             return
         if key not in self.m.keys():
             self.m[key] = 0
+            self.cache[key] = item
         if key in self.m.keys():
             self.m[key] += 1
         print(self.m)
