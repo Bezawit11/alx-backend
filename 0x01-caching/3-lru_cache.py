@@ -24,8 +24,8 @@ class LRUCache(BaseCaching):
         if len(self.cache) > BaseCaching.MAX_ITEMS:
             a = list(self.cache.keys())[0]
             print(f"DISCARD: {a}")
-            self.cache.popitem(last = False)
-        self.cache_data=self.cache.copy()
+            self.cache.popitem(last=False)
+        self.cache_data = self.cache.copy()
 
     def get(self, key):
         """gets values from dictionary by referencing a key
