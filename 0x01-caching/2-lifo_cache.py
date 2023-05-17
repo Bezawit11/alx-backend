@@ -8,6 +8,7 @@ class LIFOCache(BaseCaching):
     """inherits from BaseCaching and is a caching system
     """
     m = []
+
     def __init__(self):
         """Initializes"""
         super().__init__()
