@@ -29,7 +29,7 @@ def get_user() -> Union[Dict, None]:
     """gets user based on id"""
     a = request.args.get('login_as')
     if a:
-        return users[int(a)]
+        return users.get(int(a))
     return None
 
 @babel.localeselector
