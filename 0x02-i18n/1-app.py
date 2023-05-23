@@ -6,10 +6,10 @@ from flash import Flask
 from flask_babel import Babel
 
 
-app = Flask(__name__)
-class Config(object):
+class Config:
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
-babel = Babel(app)
+app = Flask(__name__)
 app.config.from_object(Config)
+babel = Babel(app)
