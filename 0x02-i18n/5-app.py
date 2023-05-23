@@ -4,6 +4,7 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
+from typing import Union, Dict
 
 
 class Config:
@@ -24,19 +25,12 @@ users = {
 }
 
 
-def get_user():
-    """"""
-    a = request.query_string.decode('utf-8').split('&')
-    j = {}
-    for i in a:
-        p = i.split('=')
-        j[p[0]] = p[1]
-    if 'login_as' not in j:
-        return None
-    elif j['login_as'] not in users:
-        return None
-    a = j['login_as']
-    return users[int(a)]
+def get_user() -> Union[Dict, None]:
+    """gets user based on id"""
+    a = request.args.get('login_as')
+    if a:
+        return users[int(a)]
+    return None
 
 @babel.localeselector
 def get_locale() -> str:
