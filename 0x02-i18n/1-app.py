@@ -2,7 +2,7 @@
 """Flask app"""
 
 
-from flash import Flask
+from flask import Flask
 from flask_babel import Babel
 
 
