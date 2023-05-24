@@ -37,7 +37,7 @@ def get_user() -> Union[Dict, None]:
 def before_request() -> None:
     """executed before every request"""
     u = get_user()
-    a.user = u
+    g.user = u
 
 @babel.localeselector
 def get_locale() -> str:
