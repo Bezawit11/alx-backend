@@ -32,13 +32,19 @@ def get_user() -> Union[Dict, None]:
         return users.get(int(a))
     return None
 
+
+@app.after_request 
+def before_request() -> None:
+    """executed before every request"""
+    u = get_user()
+    a.user = u
+
 @babel.localeselector
 def get_locale() -> str:
     """Get locale from request"""
     a = request.args.get('locale')
-    if a:
-        if a in app.config['LANGUAGES']:
-            return a
+    if a in app.config['LANGUAGES']:
+        return a
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
