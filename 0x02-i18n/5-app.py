@@ -33,7 +33,7 @@ def get_user() -> Union[Dict, None]:
     return None
 
 
-@app.after_request 
+@app.before_request 
 def before_request() -> None:
     """executed before every request"""
     u = get_user()
