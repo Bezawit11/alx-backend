@@ -36,8 +36,9 @@ def get_user() -> Union[Dict, None]:
 def get_locale() -> str:
     """Get locale from request"""
     a = request.args.get('locale')
-    if a in app.config['LANGUAGES']:
-        return j['locale']
+    if a:
+        if a in app.config['LANGUAGES']:
+            return a
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
