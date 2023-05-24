@@ -35,14 +35,9 @@ def get_user() -> Union[Dict, None]:
 @babel.localeselector
 def get_locale() -> str:
     """Get locale from request"""
-    a = request.query_string.decode('utf-8').split('&')
-    j = {}
-    for i in a:
-        p = i.split('=')
-        j[p[0]] = p[1]
-    if 'locale' in j:
-        if j['locale'] in app.config['LANGUAGES']:
-            return j['locale']
+    a = request.args.get('locale')
+    if a in app.config['LANGUAGES']:
+        return j['locale']
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
