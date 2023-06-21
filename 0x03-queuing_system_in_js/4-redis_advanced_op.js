@@ -6,12 +6,6 @@ redisClient.on('ready', () => {
 redisClient.on('error', (err) => {
     console.error("Redis client not connected to the server: ${err}");
 });
-const setNewSchool = (schoolName, value) => {
-  redisClient.SET(schoolName, value);
-};
-const displaySchoolValue = (schoolName) => {
-  console.log(redisClient.GET(schoolName));
-};
 
 redisClient.hmset("HolbertonSchools",
 		   "Portland", 50,
@@ -20,6 +14,5 @@ redisClient.hmset("HolbertonSchools",
 		   "Bogota", 20,
 	 	   "Cali", 40,
 		   "Paris", 2)
-displaySchoolValue('Holberton');
-setNewSchool('HolbertonSanFrancisco', '100');
-displaySchoolValue('HolbertonSanFrancisco');
+const result = redisClient.hmget("HolbertonSchools", "Portland");
+console.log(result);
