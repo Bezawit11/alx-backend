@@ -6,7 +6,8 @@ redisClient.on('ready', () => {
 redisClient.on('error', (err) => {
     console.error("Redis client not connected to the server: ${err}");
 });
-redisClient.on(“message”, function ("holberton school channel", message) {
- console.log(message);
+const subscriber = redisClient.duplicate();
+subscriber.connect();
+subscriber.subscribe('holberton school channel', (message) => {
+  console.log(message);
 });
-redisClient.subscribe(“notification”);
