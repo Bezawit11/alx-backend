@@ -1,8 +1,5 @@
-const r = require('redis')
-const redisClient = r.createClient()
-(async () => {
-    await redisClient.connect();
-})();
+const redis = require('redis');
+const redisClient = redis.createClient();
 redisClient.on('ready', () => {
     console.log("Redis client connected to the server");
 });
