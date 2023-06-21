@@ -6,12 +6,12 @@ redisClient.on('ready', () => {
 redisClient.on('error', (err) => {
     console.error("Redis client not connected to the server: ${err}");
 });
-function setNewSchool(schoolName, value) {
-  redisClient.set(schoolName, value, function (err, res) {
+const setNewSchool(schoolName, value) {
+  redisClient.SET(schoolName, value, function (err, res) {
   });
 };
-function displaySchoolValue(schoolName) {
-  console.log(redisClient.get(schoolName));
+const displaySchoolValue(schoolName) {
+  console.log(redisClient.GET(schoolName));
 };
 
 
