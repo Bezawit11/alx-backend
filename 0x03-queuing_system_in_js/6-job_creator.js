@@ -4,7 +4,15 @@ const jobData = {
   phoneNumber: string,
   message: string,
 };
-for (let i = 1; i <= jobData.lenghth; i++) {
-  queue.create("push_notification_code", {data: i})
-  .save();
-};
+queue
+        .create("push_notification_code", jobData)
+        .save((err) => {
+            if (err) {
+                console.error("Notification job completed");
+                done(err);
+            }
+            if (!err) {
+                console.log("Notification job failed");
+                done();
+            }
+        });
